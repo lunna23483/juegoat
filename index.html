@@ -4,91 +4,90 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CREAMOSS S.O S.A.S - INVESTIGACION SST</title>
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
-    text-align: center;
-    color: #333;
-  }
-  h1 {
-    color: #0d47a1;
-    margin-top: 20px;
-  }
-  #container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 30px;
-    gap: 30px;
-  }
-  #board {
-    display: grid;
-    grid-template-columns: repeat(5, 90px);
-    grid-gap: 12px;
-    padding: 20px;
-    background: #bbdefb;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  .cell {
-    width: 90px;
-    height: 90px;
-    border-radius: 12px;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-  .cell:hover {
-    transform: scale(1.08);
-  }
-  .normal { background: #fafafa; border: 2px solid #ccc; }
-  .investigacion { background: #fff3e0; border: 2px solid #ff9800; }
-  .bonus { background: #e8f5e9; border: 2px solid #4caf50; }
-  .riesgo { background: #ffebee; border: 2px solid #f44336; }
 
-  .player {
-    border: 3px solid #0d47a1 !important;
-    box-shadow: 0 0 10px #1976d2;
-  }
-  #sidepanel {
-    width: 250px;
-    text-align: left;
-    background: #ffffff;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  #log {
-    max-height: 300px;
-    overflow-y: auto;
-    background: #f7f9fc;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-  button {
-    background: #1976d2;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    margin-top: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background 0.3s;
-  }
-  button:hover {
-    background: #0d47a1;
-  }
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  text-align: center;
+  color: #333;
+}
+h1 {
+  color: #0d47a1;
+  margin-top: 20px;
+}
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
+  gap: 30px;
+}
+#board {
+  display: grid;
+  grid-template-columns: repeat(5, 90px);
+  grid-gap: 12px;
+  padding: 20px;
+  background: #bbdefb;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.cell {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.cell:hover { transform: scale(1.08); }
+
+.normal { background: #fafafa; border: 2px solid #ccc; }
+.investigacion { background: #fff3e0; border: 2px solid #ff9800; }
+.bonus { background: #e8f5e9; border: 2px solid #4caf50; }
+.riesgo { background: #ffebee; border: 2px solid #f44336; }
+
+.player {
+  border: 3px solid #0d47a1 !important;
+  box-shadow: 0 0 10px #1976d2;
+}
+
+#sidepanel {
+  width: 250px;
+  text-align: left;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+#log {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #f7f9fc;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+button {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+}
+button:hover { background: #0d47a1; }
 </style>
 </head>
+
 <body>
 
 <h1>CREAMOSS S.O S.A.S - INVESTIGACION SST 🔎</h1>
@@ -96,6 +95,7 @@
 
 <div id="container">
   <div id="board"></div>
+
   <div id="sidepanel">
     <p>🏆 Puntos: <span id="score">0</span></p>
     <p>🎯 Nivel: <span id="level">1</span></p>
@@ -104,16 +104,17 @@
   </div>
 </div>
 
-<!-- 🎵 Sonidos -->
-<audio id="soundDice" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b7d1c6a65.mp3?filename=dice-rolling-101soundboards.mp3"></audio>
-<audio id="soundCorrect" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_319cfb0d46.mp3?filename=correct-answer-3-115966.mp3"></audio>
-<audio id="soundWrong" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3881a30f69.mp3?filename=wrong-buzzer-126942.mp3"></audio>
-<audio id="soundLevelUp" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_f35c49882b.mp3?filename=success-1-6297.mp3"></audio>
-<audio id="soundBonus" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0a9a2dc3e3.mp3?filename=collect-points-190037.mp3"></audio>
+<!-- Sonidos -->
+<audio id="soundDice" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b7d1c6a65.mp3"></audio>
+<audio id="soundCorrect" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_319cfb0d46.mp3"></audio>
+<audio id="soundWrong" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3881a30f69.mp3"></audio>
+<audio id="soundLevelUp" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_f35c49882b.mp3"></audio>
+<audio id="soundBonus" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0a9a2dc3e3.mp3"></audio>
 
 <script>
 const boardSize = 25;
 const board = document.getElementById('board');
+
 let playerPos = 0;
 let score = 0;
 let level = 1;
@@ -127,15 +128,17 @@ const sBonus = document.getElementById("soundBonus");
 
 // Crear tablero
 const cells = [];
+
 for(let i=0;i<boardSize;i++){
   const cell = document.createElement('div');
+
   const typeRoll = Math.random();
   let type = 'normal';
   if(typeRoll < 0.10) type = 'normal';
   else if(typeRoll < 0.40) type = 'riesgo';
   else if(typeRoll < 0.65) type = 'investigacion';
   else type = 'bonus';
-  
+
   cell.classList.add('cell', type);
   cell.dataset.type = type;
 
@@ -147,6 +150,7 @@ for(let i=0;i<boardSize;i++){
   }[type];
 
   cell.textContent = emoji;
+
   board.appendChild(cell);
   cells.push(cell);
 }
@@ -158,8 +162,8 @@ function drawPlayer(){
 }
 drawPlayer();
 
-// Casos de accidente
-const accidents = [
+// Preguntas
+const accidentsOriginal = [
   {desc:"Operario sin casco en obra",correct:true},
   {desc:"Aceite derramado sin señalización",correct:true},
   {desc:"Uso correcto de EPP",correct:false},
@@ -172,6 +176,9 @@ const accidents = [
   {desc:"Trabajador sin arnés en altura",correct:true},
 ];
 
+let accidents = [...accidentsOriginal].sort(() => Math.random() - 0.5);
+let currentQuestion = 0;
+
 // Log
 function log(msg){
   const div = document.getElementById('log');
@@ -181,8 +188,10 @@ function log(msg){
 // Dado
 document.getElementById('rollBtn').addEventListener('click', ()=>{
   sDice.play();
+
   const roll = Math.floor(Math.random()*6)+1;
   log(`🎲 Lanzaste un ${roll}`);
+
   playerPos = (playerPos + roll) % boardSize;
   drawPlayer();
   checkCell();
@@ -191,62 +200,96 @@ document.getElementById('rollBtn').addEventListener('click', ()=>{
 // Revisar casilla
 function checkCell(){
   const type = cells[playerPos].dataset.type;
+
   switch(type){
     case 'normal':
-      log("✔️ Casilla tranquila, sigue avanzando.");
+      log("✔️ Casilla tranquila.");
       break;
+
     case 'bonus':
-      log("⭐ Bonus de rendimiento! +5 puntos");
+      log("⭐ Bonus +5 puntos");
       score +=5;
       sBonus.play();
       break;
+
     case 'investigacion':
-      log("🎴 Tarjeta de investigación: responde correctamente!");
       showAccidentCard();
       break;
+
     case 'riesgo':
-      log("⚠️ Zona de riesgo detectada!");
       if(Math.random() < 0.8){
         showAccidentCard();
       } else {
-        log("💨 Lograste evitar el incidente, sigue!");
+        log("💨 Evitaste el riesgo");
       }
       break;
   }
+
   document.getElementById('score').textContent = score;
 }
 
-// Tarjeta de accidente
+// Modal de preguntas
 function showAccidentCard(){
-  const a = accidents[Math.floor(Math.random()*accidents.length)];
-  const ans = confirm(`${a.desc}\n¿Es un riesgo que debe investigarse?`);
-  if(ans === a.correct){
-    log("✅ Correcto!");
-    sCorrect.play();
-    score += 10;
-  } else {
-    log("❌ Incorrecto!");
-    sWrong.play();
-    score -= 5;
+
+  if(currentQuestion >= accidents.length){
+    accidents = [...accidentsOriginal].sort(() => Math.random() - 0.5);
+    currentQuestion = 0;
   }
 
-  const newLevel = Math.floor(score/50)+1;
-  if(newLevel !== level){
-    level = newLevel;
-    log(`⬆️ ¡Subes al nivel ${level}! Más riesgos y retos.`);
-    sLevel.play();
-    // Aumentar dificultad
-    cells.forEach(c=>{
-      if(c.dataset.type==='bonus' && Math.random()<0.3) {
-        c.dataset.type='riesgo';
-        c.className='cell riesgo';
-        c.textContent='⚠️';
-      }
-    });
-  }
+  const a = accidents[currentQuestion];
+  currentQuestion++;
 
-  document.getElementById('level').textContent = level;
-  document.getElementById('score').textContent = score;
+  const modal = document.createElement("div");
+
+  modal.style.position = "fixed";
+  modal.style.top = "0";
+  modal.style.left = "0";
+  modal.style.width = "100%";
+  modal.style.height = "100%";
+  modal.style.background = "rgba(0,0,0,0.6)";
+  modal.style.display = "flex";
+  modal.style.justifyContent = "center";
+  modal.style.alignItems = "center";
+
+  modal.innerHTML = `
+    <div style="background:white; padding:20px; border-radius:15px; width:300px;">
+      <h3>🔎 Investigación</h3>
+      <p>${a.desc}</p>
+      <p><strong>¿Es un riesgo?</strong></p>
+      <button id="trueBtn">✔️ Verdadero</button>
+      <button id="falseBtn" style="background:#f44336;">❌ Falso</button>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  document.getElementById("trueBtn").onclick = ()=>answer(true);
+  document.getElementById("falseBtn").onclick = ()=>answer(false);
+
+  function answer(userAnswer){
+    document.body.removeChild(modal);
+
+    if(userAnswer === a.correct){
+      log("✅ Correcto!");
+      sCorrect.play();
+      score += 10;
+    } else {
+      log("❌ Incorrecto!");
+      sWrong.play();
+      score -= 5;
+    }
+
+    const newLevel = Math.floor(score/50)+1;
+
+    if(newLevel !== level){
+      level = newLevel;
+      log(`⬆️ Nivel ${level}`);
+      sLevel.play();
+    }
+
+    document.getElementById('level').textContent = level;
+    document.getElementById('score').textContent = score;
+  }
 }
 </script>
 
